@@ -32,12 +32,12 @@ def threaded(fn):
 
 
 proxy = {
-    'http':'http://awseb-AWSEB-K70LI46IDYR7-c04855a25aeb5c69.elb.eu-west-3.amazonaws.com'
+    'http':'http://localhost:5071'
 }
 @threaded
 def f():
     print('Firing')
-    response = requests.get('http://dummy.site',proxies=proxy, headers={'X_CRAWLER_THREAD_DOMAIN': 'dummy.site'},timeout=1)
+    response = requests.get('http://dummy.site',proxies=proxy, headers={'X_CRAWLER_THREAD_DOMAIN': 'dummy.site'})
     print(str(response.status_code) + response.text)
 
 for i in range(3):

@@ -8,7 +8,7 @@ from redis_cluster import RedisCluster
 from redis_cluster.functions import register_domain_hit, reset_domain_hits
 
 def handle_health_check(env, start_response):
-    if env['REQUEST_METHOD'] == "OPTIONS":
+    if env['REQUEST_METHOD'] == "GET":
         start_response('200 OK', [('Content-Type', 'application/json')])
         return [b"OK"]
 
