@@ -1,0 +1,6 @@
+version: "3.7"
+services:
+    scraper_uwsgi:
+      build: .
+      ports:
+        - "5071:5071"
