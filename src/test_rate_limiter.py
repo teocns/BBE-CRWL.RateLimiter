@@ -32,7 +32,7 @@ def threaded(fn):
 
 
 proxy = {
-    'http':'http://Crawlerperdomainratelimiter-env.eba-4fbvxadf.eu-west-3.elasticbeanstalk.com'
+    'http':'http://crawlerperdomainratelimiter-env.eba-4fbvxadf.eu-west-3.elasticbeanstalk.com/'
 }
 @threaded
 def f():
