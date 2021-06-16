@@ -4,7 +4,8 @@ FROM python:3
 
 RUN apt update -y && \
     apt install -y python3-pip && \ 
-    apt install -y python3-pip
+    apt install - build-essential && \ 
+    apt install -y python3-dev 
 
 
 
