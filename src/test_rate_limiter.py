@@ -32,7 +32,7 @@ def threaded(fn):
 
 
 proxy = {
-    'http':'http://localhost:5071'
+    'http':'awseb-AWSEB-1FFIZN35SQMUN-76d27243227a38ac.elb.eu-west-3.amazonaws.com:5071'
 }
 @threaded
 def f():
