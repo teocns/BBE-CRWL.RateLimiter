@@ -15,11 +15,11 @@ def handle_health_check(env, start_response):
 
 
 def application(env, start_response):    
-    time.sleep(3)
-    start_response('200 OK', [('Content-Type', 'application/json')])
-    return [b"OK"]
+    
     health_check = handle_health_check(env,start_response)
     if health_check:
         return health_check
-    
+    time.sleep(3)
+    start_response('200 OK', [('Content-Type', 'application/json')])
+    return [b"OK"]
     return handle_proxy_request(env,start_response)
