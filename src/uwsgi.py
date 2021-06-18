@@ -20,9 +20,9 @@ def application(env, start_response):
     health_check = handle_health_check(env,start_response)
     if health_check:
         return health_check
-
+    time.sleep(2)
     response = requests.get('https://api.ipify.org?format=json')
-    
+
     start_response('200 OK', [('Content-Type', 'application/json')])
     return [response.text.encode('utf-8')]
     return handle_proxy_request(env,start_response)
