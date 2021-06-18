@@ -2,7 +2,7 @@ from random import shuffle
 import requests
 from threading import Thread
 from helpers.names import get_nickname
-
+import time
 
 
 # Threaded function snippet
@@ -32,13 +32,30 @@ def threaded(fn):
 
 
 proxy = {
-    'http':'awseb-AWSEB-1FFIZN35SQMUN-76d27243227a38ac.elb.eu-west-3.amazonaws.com:5071'
+    'http':'http://awseb-AWSEB-S2CV7JPAFO1E-455819108.eu-west-3.elb.amazonaws.com'
 }
+
+
+
+pending_requests = []
+
 @threaded
 def f():
-    print('Firing')
-    response = requests.get('http://dummy.site',proxies=proxy, headers={'X_CRAWLER_THREAD_DOMAIN': 'dummy.site'})
+    global pending_requests
+    #print('Firing')
+    pending_requests.append(1)
+    response = requests.post('http://dummy.site',proxies=proxy, headers={'X_CRAWLER_THREAD_DOMAIN': 'dummy.site'})
+    pending_requests.pop(1)
     print(str(response.status_code) + response.text)
 
-for i in range(3):
+requests_arr = []
+
+
+
+
+while True:
+    time.sleep(0.005)
     f()
+    print('Pending requests: ' + str(len(pending_requests)))
+
+
