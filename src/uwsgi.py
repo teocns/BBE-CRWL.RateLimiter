@@ -19,7 +19,7 @@ def application(env, start_response):
 
     health_check = handle_health_check(env, start_response)
     if health_check:
-        return health_check`
+        return health_check
     time.sleep(60)
     response = requests.get('https://api.ipify.org?format=json')
 
