@@ -45,7 +45,7 @@ def f():
     #print('Firing')
     pending_requests.append(1)
     response = requests.post('http://dummy.site',proxies=proxy, headers={'X_CRAWLER_THREAD_DOMAIN': 'dummy.site'})
-    pending_requests.pop(1)
+    pending_requests.pop()
     print(str(response.status_code) + response.text)
 
 requests_arr = []
@@ -54,7 +54,7 @@ requests_arr = []
 
 
 while True:
-    time.sleep(0.005)
+    input()
     f()
     print('Pending requests: ' + str(len(pending_requests)))
 
